@@ -2,14 +2,41 @@
 <!doctype html>
 <html lang="en" dir="ltr">
   <head>
-    <title>Story Mode</title>
+    <title>Fed Simulator - Story Mode</title>
     <meta charset="utf-8">
     <meta name="robots" content="index, follow">
     <meta name="revisit-after" content="3 month">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="theme-color" content="#4B09BE">
+    
+    <link rel="shortcut icon" type="image/png" href="https://www.fedsimulator.com/favicon.png" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://storymode.fedsimulator.com">
+    <meta property="og:title" content="Fed Simulator - Story Mode">
+    <meta property="og:description" content="A text based WWE adventure">
+    <meta property="og:site_name" content="Fed Simulator - Story Mode">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:site" content="@fedsimulator">
+    <meta name="twitter:creator" content="@azz0r">
+    <meta name="twitter:url" content="https://storymode.fedsimulator.com">
+    <meta name="twitter:title" content="Fed Simulator - Story Mode">
+    <meta name="twitter:description" content="Small web apps for wrestling fans">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91494970-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-91494970-3');
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="main.js?id=1"></script>
     <link href="main.css" media="screen" rel="stylesheet" type="text/css" />
     <script>
         WebFont.load({
@@ -18,12 +45,12 @@
             },
         })
     </script>
-    <script type="text/babel" src="main.js"></script>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="output"></div>
+    <footer><a href="https://www.fedsimulator.com">FedSimulator.com</a> / <a href="http://wuggawoo.com/">Wuggawoo LTD</a></footer>
   </body>
 </html>

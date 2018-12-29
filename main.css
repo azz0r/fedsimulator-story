@@ -1,21 +1,117 @@
+/* general */
 html, body {
     font-family: 'Press Start 2P', cursive;
     height: 100%;
     background-color: black;
-    color: white;
+    user-select: none;
 }
 
 body {
-    margin: 0;
-    font-size: xx-large;
+    margin: 6vh 12vw;
 }
 
+body,
+a {
+    color: white;
+}
+
+/* div we write into */
 #output {
-    height: 100%;
     padding: 0;
-    margin: 0;
+    margin: 0 0 10rem 0;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
+    word-spacing: .2rem;
+    line-height: 3rem;
+}
+
+/* container for the slide */
+.slide {
+    padding: 2rem 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: large;
+}
+
+/* intro scene */
+.intro {
+    font-size: xx-large;
+    background-color: red;
+    text-align: center;
+    vertical-align: middle;
+    height: 15rem;
+    line-height: 15rem;
+}
+
+.slide-0 .option {
+    text-align: center;
+    animation: blinker 2s linear infinite;
+}
+
+.slide-0 .option:hover,
+.slide-0 .option:active {
+    font-weight: bolder;
+    animation: none;
+}
+
+/* slide containers by type */
+.match {
+    background-color: blue;
+}
+
+.scene {
+    background-color: white;
+    color: black;
+}
+
+.decision {
+    background-color: #673ab7;
+}
+
+.win {
+    background-color: green;
+}
+
+.loss {
+    background-color: darkorchid;
+}
+
+/* option blocks */
+.option {
+    color: #00BCD4;
+    border: 2px solid #000;
+    outline: .2rem dashed #fff;
+    outline-offset: 10px;
+    margin: 1rem 1rem 2rem;
+    width: 100%;
+    cursor: pointer;
+    letter-spacing: .2rem;
+}
+
+.option:focus, 
+.option:hover {
+    font-weight: bolder;
+    color:yellow;
+}
+
+footer {
+    text-align: center;
+    line-height: 2rem;
+}
+
+/* responsive */
+@media only screen and (max-width: 900px) {
+    .slide,
+    .option {
+        font-size: small;
+        line-height: 2rem;
+    }
+}
+
+/* animation */
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
 }
