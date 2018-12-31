@@ -1,23 +1,23 @@
 class App {
-	constructor(slides) {
+	constructor(rootEl, slides) {
 		const currentSlideId = localStorage.getItem('currentSlideId') || 0;
 
 		this.slides = slides;
-		this.rootEl = document.getElementById('output');
+		this.rootEl = rootEl;
 
 		this.setCurrentSlideId(currentSlideId);
 		this.updateCurrentSlide();
 	}
 
-	updateCurrentSlide() {
+	updateCurrentSlide = () => {
 		this.currentSlide = this.slides.find(({ id }) => id === this.currentSlideId);
 
 		this.render();
 	}
 
-	setCurrentSlideId(id) {
+	setCurrentSlideId = (id) => {
 		this.currentSlideId = Number(id);
-		localStorage.setItem('currentSlideId', id);
+		localStorage.setItem('currentSlideId', this.currentSlideId);
 	}
 
 	createEl = (tag, props = {}) => {
@@ -28,19 +28,19 @@ class App {
 		this.rootEl.appendChild(element);
 	};
 
-	onClick = (gotoSlideId) => {
-		const newSlide = this.slides.find(({ id }) => id === gotoSlideId);
+	onClick = (slideId) => {
+		const slide = this.slides.find(({ id }) => id === slideId);
 
-		if (newSlide) {
-			this.setCurrentSlideId(gotoSlideId);
+		if (slide) {
+			this.setCurrentSlideId(slideId);
 			this.updateCurrentSlide();
-		} else if (gotoSlideId === 100) {
+		} else if (slideId === 100) {
 			window.location = 'https://www.fedsimulator.com';
 		}
 	};
 
 	displayCurrentSlide = () => {
-        const { id, type, text } = this.currentSlide
+		const { id, type, text } = this.currentSlide;
 
 		return this.createEl('div', {
 			className: [ 'slide', 'slide-' + id, type ].join(' '),
@@ -56,6 +56,12 @@ class App {
 			onkeypress: () => this.onClick(option.goto)
 		});
 
+	
+	clearSlide = () => {
+		this.rootEl.innerHTML = '';
+		this.rootEl.className = 'slide-' + this.currentSlide.id;
+	};
+
 	render = () => {
 		this.clearSlide();
 		let currentView = this.displayCurrentSlide();
@@ -65,11 +71,6 @@ class App {
 		});
 
 		return currentView;
-	};
-
-	clearSlide = () => {
-		this.rootEl.innerHTML = '';
-		this.rootEl.className = 'slide-' + this.currentSlide.id;
 	};
 }
 
@@ -636,4 +637,4 @@ const slides = [
 	}
 ];
 
-new App(slides);
+new App(document.getElementById('output'), slides);
