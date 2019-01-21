@@ -1,6 +1,6 @@
 # Fed Sim - Story Mode
 
-### [View a demo here](http://storymode.fedsimulator.com/)
+### [View a demo here](https://fedsimulatorstory.com/)
 
 ## 📕 Index
 * [Launching](#launching)
